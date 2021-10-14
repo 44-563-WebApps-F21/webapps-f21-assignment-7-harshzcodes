@@ -20,7 +20,7 @@
 
   <button type="button"
   class="btn btn-primary"
-  onclick="buttonPress2()">
+  onclick="startTime()">
   Start Timer</button>
 
   <button type="button"
@@ -31,10 +31,29 @@
 
   <script> 
    var myTime = undefined;
-  function recordReact() {
-   
+  function recordReact() 
+  {   
     myTime = Date.now()
     console.log(myTime)
+  }
+  function startTime()
+  {
+    for(let i=0;i<=3 ;i++){
+      setTimeout(()=>{
+        document.getElementById("countdown").innerHTML = "count: "+ i
+      },(3-i)*1000)
+    }
+    setTimeout(()=>{checkMyTime()},3000)
+  }
+  function checkMyTime(){
+    var timer = document.getElementById("target")
+    if(myTime == undefined)
+        timer.innerHTML = "Too slow"
+    else{
+      var buttonTime =Date.now()
+      var difference = buttonTime- myTime
+      timer.innerHTML = "Time was "+ difference
+    }
   }
   </script>
 
