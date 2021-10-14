@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<title>Stack of Items</title>
+		 <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+	<h2>Builds a stack</h2>
+	<input id="InputElement" type="text"><br><br>
+		<div class="flex-container" id="target">
+		  <div class="stack">row item 1</div>   
+		  <div class="stack">row item 2</div>  
+		  <div class="stack">row item 3</div>  
+		</div>
+	
+	<p> Press the below buttons to push , pop and Zap the stack items</p><br>
+		<button onclick="makeNewDiv()">Push Value</button>
+	
+	
+</body>
+<script>
+	function makeNewDiv(){
+		var divelement = document.createElement("div")
+	var input = document.getElementById("InputElement")
+	divelement.innerHTML = input.value
+	divelement.className = "stack"	
+	document.getElementById('target').appendChild(divelement)		
+	}
+</script>
+</html>	
