@@ -55,6 +55,22 @@
       timer.innerHTML = "Time was "+ difference
     }
   }
+
+
+  function startTime() {
+        let min = 2
+      let max = 10
+      countdown = Math.floor(Math.random()*(max-min+1)+min)
+      for(let i=0; i<countdown; i++){
+        setTimeout(()=>{
+              document.getElementById("countdown").innerHTML = "Count: " + i
+          }, (3-i)*1000)
+      }
+      setTimeout(() => {
+          checkMyTime()
+      }, 3000)
+    }
+
   </script>
 
 </body>
