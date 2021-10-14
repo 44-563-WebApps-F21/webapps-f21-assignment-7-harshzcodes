@@ -35,6 +35,8 @@
 	
 	<p> Press the below buttons to push , pop and Zap the stack items</p><br>
 		<button onclick="makeNewDiv()">Push Value</button>
+		<button onclick="popItem()">Pop Value</button>
+		<button onclick="zap()">Zap Value</button>
 	
 	
 </body>
@@ -45,6 +47,26 @@
 	divelement.innerHTML = input.value
 	divelement.className = "stack"	
 	document.getElementById('target').appendChild(divelement)		
+	}
+	function popItem() {
+		var Items = document.getElementsByClassName("stack")
+		var length = Items.length
+		if (length > 0)
+			Items[length - 1].remove()
+	}
+	function zap() {
+		var Items = document.getElementsByClassName("stack")
+		let input = document.getElementById("InputElement").value
+		if (Items != undefined && Items.length > 0) {
+			for (let i = 0; i < Items.length; i++) {
+				if (Items[i].innerHTML == input) {
+					var itemToBeRemoved = Items[i].innerHTML
+					Items[i].remove()
+					console.log(itemToBeRemoved)
+					i--
+				}
+			}
+		}
 	}
 </script>
 </html>	
